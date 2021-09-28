@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace eCommerceStarterCode.Data
 {
-    public class ApplicationDbContext : IdentityDbContext<User>
+    public class ApplicationDbContext : IdentityDbContext<Customer>
     {
         public ApplicationDbContext(DbContextOptions options)
             :base(options)
@@ -13,7 +13,7 @@ namespace eCommerceStarterCode.Data
 
         }
 
-        public DbSet <User> User { get;set; }
+        public DbSet <Customer> Customers { get;set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

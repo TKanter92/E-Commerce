@@ -15,11 +15,11 @@ namespace eCommerceStarterCode.Managers
 {
     public class AuthenticationManager : IAuthenticationManager
     {
-        private readonly UserManager<User> _userManager;
+        private readonly UserManager<Customer> _userManager;
         private readonly IConfiguration _configuration;
-        private User _user;
+        private Customer _user;
 
-        public AuthenticationManager(UserManager<User> userManager, IConfiguration configuration)
+        public AuthenticationManager(UserManager<Customer> userManager, IConfiguration configuration)
         {
             _userManager = userManager;
             _configuration = configuration;

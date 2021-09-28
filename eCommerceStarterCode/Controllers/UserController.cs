@@ -21,21 +21,21 @@ namespace eCommerceStarterCode.Controllers
         [HttpGet]
         public IActionResult GetAllUsers(int Id)
         {
-            var User = _context.User;
+            var User = _context.Customers;
             return Ok(User);
         }
         [HttpGet("{Id}")]
         public IActionResult GetSingleUser(int Id)
         {
-            var User = _context.User.Find(Id);
+            var User = _context.Customers.Find(Id);
             return Ok(User);
         }
 
         [HttpPost]
 
-        public IActionResult Post([FromBody] User value)
+        public IActionResult Post([FromBody] Customer value)
         {
-            _context.User.Add(value);
+            _context.Customers.Add(value);
             _context.SaveChanges();
             return StatusCode(201, value);
         }
@@ -43,9 +43,9 @@ namespace eCommerceStarterCode.Controllers
 
 
         [HttpDelete("{Id}")]
-        public IActionResult DeleteSingleUser(User user)
+        public IActionResult DeleteSingleUser(Customer user)
         {
-            var User = _context.User.Remove(user);
+            var User = _context.Customers.Remove(user);
             return Ok(User);
         }
 
