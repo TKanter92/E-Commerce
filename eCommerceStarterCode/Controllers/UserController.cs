@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using eCommerceStarterCode.Data;
+using eCommerceStarterCode.Models;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -41,15 +43,12 @@ namespace eCommerceStarterCode.Controllers
 
 
         [HttpDelete("{Id}")]
-        public IActionResult DeleteSingleUser(int Id)
+        public IActionResult DeleteSingleUser(User user)
         {
-            var User = _context.User.Remove(Id);
+            var User = _context.User.Remove(user);
             return Ok(User);
-
-
-
         }
 
     }
 }
-}
+
