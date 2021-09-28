@@ -1,4 +1,5 @@
 ﻿using eCommerceStarterCode.Data;
+using eCommerceStarterCode.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -20,13 +21,13 @@ namespace eCommerceStarterCode.Controllers
         [HttpGet]
         public IActionResult GetAllCart(int Id)
         {
-            var shoppingCart = _context.ShoppingCart;
+            var shoppingCart = _context.ShoppingCarts;
             return Ok(shoppingCart);
         }
         [HttpGet("{Id}")]
         public IActionResult GetSingleCart(int Id)
         {
-            var shoppingCart = _context.ShoppingCart.Find(Id);
+            var shoppingCart = _context.ShoppingCarts.Find(Id);
             return Ok(shoppingCart);
         }
 
@@ -34,7 +35,7 @@ namespace eCommerceStarterCode.Controllers
 
         public IActionResult Post([FromBody]ShoppingCart value)
         {
-             _context.ShoppingCart.Add(value);
+             _context.ShoppingCarts.Add(value);
              _context.SaveChanges();
              return StatusCode(201, value);
         }
@@ -42,9 +43,9 @@ namespace eCommerceStarterCode.Controllers
 
 
         [HttpDelete("{Id}")]
-        public IActionResult DeleteSingleCart(int Id)
+        public IActionResult DeleteSingleCart(ShoppingCart cart)
         {
-            var shoppingCart = _context.ShoppingCart.Remove(Id);
+            var shoppingCart = _context.ShoppingCarts.Remove(cart);
             return Ok(shoppingCart);
 
 
