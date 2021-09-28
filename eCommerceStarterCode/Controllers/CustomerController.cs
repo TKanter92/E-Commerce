@@ -11,24 +11,24 @@ namespace eCommerceStarterCode.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class UserController : ControllerBase
+    public class CustomerController : ControllerBase
     {
         private readonly ApplicationDbContext _context;
-        public UserController(ApplicationDbContext context)
+        public CustomerController(ApplicationDbContext context)
         {
             _context = context;
         }
         [HttpGet]
         public IActionResult GetAllUsers(int Id)
         {
-            var User = _context.Customers;
-            return Ok(User);
+            var Customer = _context.Customers;
+            return Ok(Customer);
         }
         [HttpGet("{Id}")]
         public IActionResult GetSingleUser(int Id)
         {
-            var User = _context.Customers.Find(Id);
-            return Ok(User);
+            var Customer = _context.Customers.Find(Id);
+            return Ok(Customer);
         }
 
         [HttpPost]
@@ -45,8 +45,8 @@ namespace eCommerceStarterCode.Controllers
         [HttpDelete("{Id}")]
         public IActionResult DeleteSingleUser(Customer user)
         {
-            var User = _context.Customers.Remove(user);
-            return Ok(User);
+            var Customer = _context.Customers.Remove(user);
+            return Ok(Customer);
         }
 
     }
