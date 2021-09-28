@@ -15,6 +15,8 @@ namespace eCommerceStarterCode.Data
 
         public DbSet <Customer> Customers { get;set; }
         public DbSet <ShoppingCart> ShoppingCarts { get; set; }
+        public DbSet <Product> Products { get; set; }
+        public DbSet <Review> Reviews { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
