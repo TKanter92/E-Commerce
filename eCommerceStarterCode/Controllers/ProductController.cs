@@ -42,9 +42,11 @@ namespace eCommerceStarterCode.Controllers
         }
 
         [HttpDelete("{Id}")]
-        public IActionResult DeleteProduct(Product product)
+        public IActionResult DeleteProduct(int Id)
         {
-            var productToDelete = _context.Products.Remove(product);
+            var productToDelete = _context.Products.SingleOrDefault(p => p.ProductId == Id);
+            _context.Remove(productToDelete);
+            _context.SaveChanges();
             return Ok(productToDelete);
         }
 
