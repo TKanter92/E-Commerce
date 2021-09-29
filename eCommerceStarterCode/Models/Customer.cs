@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Identity;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace eCommerceStarterCode.Models
 {
@@ -12,8 +13,6 @@ namespace eCommerceStarterCode.Models
         public string State { get; set;}
         public int ZipCode {get; set;}
         public string Password { get; set;}
-
-
 
     }
 }
