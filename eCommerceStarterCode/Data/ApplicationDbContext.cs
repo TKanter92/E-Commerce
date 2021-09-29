@@ -22,6 +22,10 @@ namespace eCommerceStarterCode.Data
         {
             base.OnModelCreating(modelBuilder);
 
+            modelBuilder.Entity<Product>().HasData(
+                    new Product { ProductId = 1, ProductName = "Abbey Road", Price = 20, Description="Cool Album", Genre = "Rock", Reviews = "Good", Rating = 5 }
+                );
+
             modelBuilder.ApplyConfiguration(new RolesConfiguration());
         }
 

@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using eCommerceStarterCode.Data;
 
 namespace eCommerceStarterCode.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20210929140755_initialmigration")]
+    partial class initialmigration
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -48,15 +50,15 @@ namespace eCommerceStarterCode.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "c49e787c-fb83-4a9b-acea-a83e3d2ff4a2",
-                            ConcurrencyStamp = "56496bfa-cb20-459a-9cd7-994c6a6e073e",
+                            Id = "2d2bba51-0def-4019-977e-609b822a7261",
+                            ConcurrencyStamp = "23c27555-f0c4-4334-be71-c5c1c5a0a09c",
                             Name = "User",
                             NormalizedName = "USER"
                         },
                         new
                         {
-                            Id = "47cc8f1d-4adc-41dd-9436-6d9f3ad45e5a",
-                            ConcurrencyStamp = "a1f908a4-728d-4b31-befd-f332924b1e0b",
+                            Id = "293a7aa3-f316-47e8-9c33-b875854d8c70",
+                            ConcurrencyStamp = "c4c3819d-96e2-4d62-bbf7-5e70ec672e5b",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         });
@@ -283,18 +285,6 @@ namespace eCommerceStarterCode.Migrations
                     b.HasKey("ProductId");
 
                     b.ToTable("Products");
-
-                    b.HasData(
-                        new
-                        {
-                            ProductId = 1,
-                            Description = "Cool Album",
-                            Genre = "Rock",
-                            Price = 20f,
-                            ProductName = "Abbey Road",
-                            Rating = 5,
-                            Reviews = "Good"
-                        });
                 });
 
             modelBuilder.Entity("eCommerceStarterCode.Models.Review", b =>

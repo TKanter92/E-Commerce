@@ -5,6 +5,7 @@ namespace eCommerceStarterCode.Models
 {
     public class Customer : IdentityUser
     {
+ 
         public int CustomerId { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
