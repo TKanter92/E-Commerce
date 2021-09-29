@@ -16,6 +16,8 @@ namespace eCommerceStarterCode.Models
 
         public int Rating { get; set; }
 
+
+
         [ForeignKey("Product")]
 
         public int ProductId { get; set; }
