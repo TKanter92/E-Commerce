@@ -43,12 +43,14 @@ namespace eCommerceStarterCode.Controllers
 
 
         [HttpDelete("{Id}")]
-        public IActionResult DeleteSingleCart(ShoppingCart cart)
+        public IActionResult DeleteSingleCart(int Id)
         {
-            var shoppingCart = _context.ShoppingCarts.Remove(cart);
-            return Ok(shoppingCart);
 
-
+            var RemoveItem = _context.ShoppingCarts.SingleOrDefault(sc => sc.ShoppingCartId == Id);
+            _context.Remove(RemoveItem);
+            _context.SaveChanges();
+            return Ok(RemoveItem);
+          
 
         }
 
