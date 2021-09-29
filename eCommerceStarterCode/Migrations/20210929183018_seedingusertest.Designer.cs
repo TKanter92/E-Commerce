@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using eCommerceStarterCode.Data;
 
 namespace eCommerceStarterCode.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20210929183018_seedingusertest")]
+    partial class seedingusertest
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -48,15 +50,15 @@ namespace eCommerceStarterCode.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "c9f9b5f9-70fb-4075-bdc6-74ca2260e4a6",
-                            ConcurrencyStamp = "8b7d90b5-f052-4711-8e34-1cdecb1dac6a",
+                            Id = "7ac12342-521d-485c-becf-6b35674bebdd",
+                            ConcurrencyStamp = "6c7b0c47-31b0-4823-870a-7dd8dc6e45c8",
                             Name = "User",
                             NormalizedName = "USER"
                         },
                         new
                         {
-                            Id = "f78d7166-42fc-4790-9eca-0209613069a2",
-                            ConcurrencyStamp = "094ffa77-2282-4718-b77c-4518baa5a534",
+                            Id = "47d3f6e6-9370-4641-89f5-1a48c70a7ea4",
+                            ConcurrencyStamp = "0fa6db93-1714-408c-b9c0-33136170c35e",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         });
@@ -247,15 +249,6 @@ namespace eCommerceStarterCode.Migrations
                     b.HasIndex("UserId");
 
                     b.ToTable("ShoppingCarts");
-
-                    b.HasData(
-                        new
-                        {
-                            ShoppingCartId = 1,
-                            ProductId = 2,
-                            Quantity = 2,
-                            UserId = "3a8616a4-4b42-4acf-babb-452358b67d0c"
-                        });
                 });
 
             modelBuilder.Entity("eCommerceStarterCode.Models.User", b =>
@@ -327,6 +320,21 @@ namespace eCommerceStarterCode.Migrations
                         .HasFilter("[NormalizedUserName] IS NOT NULL");
 
                     b.ToTable("AspNetUsers");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = "2073c289-e37a-451d-b215-bac6b5d30433",
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "71607ee6-d7a5-48ce-a381-31ac67e6edc0",
+                            EmailConfirmed = false,
+                            FirstName = "Test",
+                            LastName = "Test",
+                            LockoutEnabled = false,
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "553caf20-87a3-4932-9f33-f8a35f916275",
+                            TwoFactorEnabled = false
+                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

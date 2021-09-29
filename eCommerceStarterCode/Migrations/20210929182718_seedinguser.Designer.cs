@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using eCommerceStarterCode.Data;
 
 namespace eCommerceStarterCode.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20210929182718_seedinguser")]
+    partial class seedinguser
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -48,15 +50,15 @@ namespace eCommerceStarterCode.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "c9f9b5f9-70fb-4075-bdc6-74ca2260e4a6",
-                            ConcurrencyStamp = "8b7d90b5-f052-4711-8e34-1cdecb1dac6a",
+                            Id = "da7999e8-5f45-4a3e-bfc4-f49af3f1ac0b",
+                            ConcurrencyStamp = "0f40780a-25a5-403c-90a5-d603afccc66e",
                             Name = "User",
                             NormalizedName = "USER"
                         },
                         new
                         {
-                            Id = "f78d7166-42fc-4790-9eca-0209613069a2",
-                            ConcurrencyStamp = "094ffa77-2282-4718-b77c-4518baa5a534",
+                            Id = "e4682c8a-89f7-4d43-882f-4ba401fd688a",
+                            ConcurrencyStamp = "9956fffc-6783-489e-b318-a0632bc4dca0",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         });
@@ -194,6 +196,17 @@ namespace eCommerceStarterCode.Migrations
                     b.HasKey("ProductId");
 
                     b.ToTable("Products");
+
+                    b.HasData(
+                        new
+                        {
+                            ProductId = 1,
+                            Description = "Cool Album",
+                            Genre = "Rock",
+                            Price = 20f,
+                            ProductName = "Abbey Road",
+                            Rating = 5
+                        });
                 });
 
             modelBuilder.Entity("eCommerceStarterCode.Models.Review", b =>
@@ -247,15 +260,6 @@ namespace eCommerceStarterCode.Migrations
                     b.HasIndex("UserId");
 
                     b.ToTable("ShoppingCarts");
-
-                    b.HasData(
-                        new
-                        {
-                            ShoppingCartId = 1,
-                            ProductId = 2,
-                            Quantity = 2,
-                            UserId = "3a8616a4-4b42-4acf-babb-452358b67d0c"
-                        });
                 });
 
             modelBuilder.Entity("eCommerceStarterCode.Models.User", b =>
@@ -327,6 +331,21 @@ namespace eCommerceStarterCode.Migrations
                         .HasFilter("[NormalizedUserName] IS NOT NULL");
 
                     b.ToTable("AspNetUsers");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = "44a65849-3f49-4536-bace-07e22c643122",
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "a057683c-8bec-41dd-bebc-cac7006cc093",
+                            EmailConfirmed = false,
+                            FirstName = "Test",
+                            LastName = "Test",
+                            LockoutEnabled = false,
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "a0132da3-6838-45a3-88c0-d1263471ceeb",
+                            TwoFactorEnabled = false
+                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

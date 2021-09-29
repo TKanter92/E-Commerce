@@ -8,5 +8,6 @@ namespace eCommerceStarterCode.Models
         //User is IdentityUser
         public string FirstName { get; set; }
         public string LastName { get; set; }
+      
     }
 }
