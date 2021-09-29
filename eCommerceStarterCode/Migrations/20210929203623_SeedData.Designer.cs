@@ -10,8 +10,8 @@ using eCommerceStarterCode.Data;
 namespace eCommerceStarterCode.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20210929164758_SeededShoppingCart")]
-    partial class SeededShoppingCart
+    [Migration("20210929203623_SeedData")]
+    partial class SeedData
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -50,15 +50,15 @@ namespace eCommerceStarterCode.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "4cccfbb5-980a-477b-a852-2d2b8533f079",
-                            ConcurrencyStamp = "84ee17eb-b008-4dd6-be26-2e0ceaef77d5",
+                            Id = "20bff8ac-e5c9-47a9-822d-f25195fbbc42",
+                            ConcurrencyStamp = "3b6e828f-b331-47e0-aa75-c42f56c8746b",
                             Name = "User",
                             NormalizedName = "USER"
                         },
                         new
                         {
-                            Id = "2f8d148e-6add-4093-a0ee-919477d99def",
-                            ConcurrencyStamp = "ce9ba667-54a9-4a88-8467-57fb64547819",
+                            Id = "a5830b19-470f-4227-810d-64faa9b32181",
+                            ConcurrencyStamp = "941bb335-a465-4489-84b9-c91d768be3dd",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         });
@@ -265,9 +265,9 @@ namespace eCommerceStarterCode.Migrations
                         new
                         {
                             ShoppingCartId = 1,
-                            ProductId = 2,
+                            ProductId = 1,
                             Quantity = 2,
-                            UserId = "a123"
+                            UserId = "3c82f367-c83e-4231-86e3-1775cb1c097a"
                         });
                 });
 

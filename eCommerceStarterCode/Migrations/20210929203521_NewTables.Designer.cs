@@ -10,8 +10,8 @@ using eCommerceStarterCode.Data;
 namespace eCommerceStarterCode.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20210929163759_ProductSeed")]
-    partial class ProductSeed
+    [Migration("20210929203521_NewTables")]
+    partial class NewTables
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -50,15 +50,15 @@ namespace eCommerceStarterCode.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "daf1cf7b-d356-4443-b24a-9e548e092171",
-                            ConcurrencyStamp = "02f04608-d7ab-484d-a4f0-0e4803bd934a",
+                            Id = "503d7bcf-aa7f-4659-b499-34ceacf74580",
+                            ConcurrencyStamp = "1b338e8b-f496-4389-97eb-88b64ff33df6",
                             Name = "User",
                             NormalizedName = "USER"
                         },
                         new
                         {
-                            Id = "ec78faaa-53e2-4d54-aeaf-f228cbc86b9d",
-                            ConcurrencyStamp = "8e97524f-99b8-4382-bb85-3c749f326ab8",
+                            Id = "71e9bd22-fbf7-4a6c-b9b8-12c5796fcf24",
+                            ConcurrencyStamp = "b4064bed-20f1-42d8-9711-a167cdd06588",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         });
@@ -196,17 +196,6 @@ namespace eCommerceStarterCode.Migrations
                     b.HasKey("ProductId");
 
                     b.ToTable("Products");
-
-                    b.HasData(
-                        new
-                        {
-                            ProductId = 1,
-                            Description = "Cool Album",
-                            Genre = "Rock",
-                            Price = 20f,
-                            ProductName = "Abbey Road",
-                            Rating = 5
-                        });
                 });
 
             modelBuilder.Entity("eCommerceStarterCode.Models.Review", b =>

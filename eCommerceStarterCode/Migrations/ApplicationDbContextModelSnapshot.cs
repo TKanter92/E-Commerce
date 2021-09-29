@@ -48,15 +48,15 @@ namespace eCommerceStarterCode.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "c9f9b5f9-70fb-4075-bdc6-74ca2260e4a6",
-                            ConcurrencyStamp = "8b7d90b5-f052-4711-8e34-1cdecb1dac6a",
+                            Id = "20bff8ac-e5c9-47a9-822d-f25195fbbc42",
+                            ConcurrencyStamp = "3b6e828f-b331-47e0-aa75-c42f56c8746b",
                             Name = "User",
                             NormalizedName = "USER"
                         },
                         new
                         {
-                            Id = "f78d7166-42fc-4790-9eca-0209613069a2",
-                            ConcurrencyStamp = "094ffa77-2282-4718-b77c-4518baa5a534",
+                            Id = "a5830b19-470f-4227-810d-64faa9b32181",
+                            ConcurrencyStamp = "941bb335-a465-4489-84b9-c91d768be3dd",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         });
@@ -194,6 +194,17 @@ namespace eCommerceStarterCode.Migrations
                     b.HasKey("ProductId");
 
                     b.ToTable("Products");
+
+                    b.HasData(
+                        new
+                        {
+                            ProductId = 1,
+                            Description = "Cool Album",
+                            Genre = "Rock",
+                            Price = 20f,
+                            ProductName = "Abbey Road",
+                            Rating = 5
+                        });
                 });
 
             modelBuilder.Entity("eCommerceStarterCode.Models.Review", b =>
@@ -252,9 +263,9 @@ namespace eCommerceStarterCode.Migrations
                         new
                         {
                             ShoppingCartId = 1,
-                            ProductId = 2,
+                            ProductId = 1,
                             Quantity = 2,
-                            UserId = "3a8616a4-4b42-4acf-babb-452358b67d0c"
+                            UserId = "3c82f367-c83e-4231-86e3-1775cb1c097a"
                         });
                 });
 
