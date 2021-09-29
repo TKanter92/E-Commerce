@@ -2,7 +2,7 @@
 
 namespace eCommerceStarterCode.Migrations
 {
-    public partial class initialmigrations : Migration
+    public partial class NewTables : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -16,44 +16,6 @@ namespace eCommerceStarterCode.Migrations
                 keyColumn: "Id",
                 keyValue: "c073f42c-79e8-41a6-a5d7-0ed41ae7aca0");
 
-            migrationBuilder.AddColumn<string>(
-                name: "City",
-                table: "AspNetUsers",
-                type: "nvarchar(max)",
-                nullable: true);
-
-            migrationBuilder.AddColumn<int>(
-                name: "CustomerId",
-                table: "AspNetUsers",
-                type: "int",
-                nullable: false,
-                defaultValue: 0);
-
-            migrationBuilder.AddColumn<string>(
-                name: "Password",
-                table: "AspNetUsers",
-                type: "nvarchar(max)",
-                nullable: true);
-
-            migrationBuilder.AddColumn<string>(
-                name: "State",
-                table: "AspNetUsers",
-                type: "nvarchar(max)",
-                nullable: true);
-
-            migrationBuilder.AddColumn<string>(
-                name: "StreetAddress",
-                table: "AspNetUsers",
-                type: "nvarchar(max)",
-                nullable: true);
-
-            migrationBuilder.AddColumn<int>(
-                name: "ZipCode",
-                table: "AspNetUsers",
-                type: "int",
-                nullable: false,
-                defaultValue: 0);
-
             migrationBuilder.CreateTable(
                 name: "Products",
                 columns: table => new
@@ -61,10 +23,10 @@ namespace eCommerceStarterCode.Migrations
                     ProductId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     ProductName = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Artist = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Price = table.Column<float>(type: "real", nullable: false),
                     Description = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Genre = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Reviews = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Rating = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
@@ -106,16 +68,16 @@ namespace eCommerceStarterCode.Migrations
                 {
                     ShoppingCartId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    ProductId = table.Column<int>(type: "int", nullable: false),
                     Quantity = table.Column<int>(type: "int", nullable: true),
-                    CustomerId = table.Column<string>(type: "nvarchar(450)", nullable: true)
+                    ProductId = table.Column<int>(type: "int", nullable: false),
+                    UserId = table.Column<string>(type: "nvarchar(450)", nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_ShoppingCarts", x => x.ShoppingCartId);
                     table.ForeignKey(
-                        name: "FK_ShoppingCarts_AspNetUsers_CustomerId",
-                        column: x => x.CustomerId,
+                        name: "FK_ShoppingCarts_AspNetUsers_UserId",
+                        column: x => x.UserId,
                         principalTable: "AspNetUsers",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
@@ -130,12 +92,12 @@ namespace eCommerceStarterCode.Migrations
             migrationBuilder.InsertData(
                 table: "AspNetRoles",
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
-                values: new object[] { "835b5fa3-b810-4b3c-9898-898a2da5e40a", "64464459-f9ea-49f9-8579-84f2537312ad", "User", "USER" });
+                values: new object[] { "91c4a51f-a2a0-4887-be55-395b5aec018f", "9c0ca3d3-6d1a-47e1-98e6-bcf477703c94", "User", "USER" });
 
             migrationBuilder.InsertData(
                 table: "AspNetRoles",
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
-                values: new object[] { "766f63d4-7e0e-4e6e-aa84-3d2fdbaee00c", "c4d7a0fc-0392-48d0-9464-74f5d594457b", "Admin", "ADMIN" });
+                values: new object[] { "b79f18fd-96fc-4df5-bfde-ee9c5c871716", "90679dc7-1644-48e0-b013-93903a570d2a", "Admin", "ADMIN" });
 
             migrationBuilder.CreateIndex(
                 name: "IX_Reviews_ProductId",
@@ -148,14 +110,14 @@ namespace eCommerceStarterCode.Migrations
                 column: "UserId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_ShoppingCarts_CustomerId",
-                table: "ShoppingCarts",
-                column: "CustomerId");
-
-            migrationBuilder.CreateIndex(
                 name: "IX_ShoppingCarts_ProductId",
                 table: "ShoppingCarts",
                 column: "ProductId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_ShoppingCarts_UserId",
+                table: "ShoppingCarts",
+                column: "UserId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -172,36 +134,12 @@ namespace eCommerceStarterCode.Migrations
             migrationBuilder.DeleteData(
                 table: "AspNetRoles",
                 keyColumn: "Id",
-                keyValue: "766f63d4-7e0e-4e6e-aa84-3d2fdbaee00c");
+                keyValue: "91c4a51f-a2a0-4887-be55-395b5aec018f");
 
             migrationBuilder.DeleteData(
                 table: "AspNetRoles",
                 keyColumn: "Id",
-                keyValue: "835b5fa3-b810-4b3c-9898-898a2da5e40a");
-
-            migrationBuilder.DropColumn(
-                name: "City",
-                table: "AspNetUsers");
-
-            migrationBuilder.DropColumn(
-                name: "CustomerId",
-                table: "AspNetUsers");
-
-            migrationBuilder.DropColumn(
-                name: "Password",
-                table: "AspNetUsers");
-
-            migrationBuilder.DropColumn(
-                name: "State",
-                table: "AspNetUsers");
-
-            migrationBuilder.DropColumn(
-                name: "StreetAddress",
-                table: "AspNetUsers");
-
-            migrationBuilder.DropColumn(
-                name: "ZipCode",
-                table: "AspNetUsers");
+                keyValue: "b79f18fd-96fc-4df5-bfde-ee9c5c871716");
 
             migrationBuilder.InsertData(
                 table: "AspNetRoles",

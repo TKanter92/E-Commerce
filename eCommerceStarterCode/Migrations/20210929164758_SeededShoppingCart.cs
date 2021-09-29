@@ -2,34 +2,34 @@
 
 namespace eCommerceStarterCode.Migrations
 {
-    public partial class seedingProduct : Migration
+    public partial class SeededShoppingCart : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DeleteData(
                 table: "AspNetRoles",
                 keyColumn: "Id",
-                keyValue: "293a7aa3-f316-47e8-9c33-b875854d8c70");
+                keyValue: "daf1cf7b-d356-4443-b24a-9e548e092171");
 
             migrationBuilder.DeleteData(
                 table: "AspNetRoles",
                 keyColumn: "Id",
-                keyValue: "2d2bba51-0def-4019-977e-609b822a7261");
+                keyValue: "ec78faaa-53e2-4d54-aeaf-f228cbc86b9d");
 
             migrationBuilder.InsertData(
                 table: "AspNetRoles",
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
-                values: new object[] { "c49e787c-fb83-4a9b-acea-a83e3d2ff4a2", "56496bfa-cb20-459a-9cd7-994c6a6e073e", "User", "USER" });
+                values: new object[] { "4cccfbb5-980a-477b-a852-2d2b8533f079", "84ee17eb-b008-4dd6-be26-2e0ceaef77d5", "User", "USER" });
 
             migrationBuilder.InsertData(
                 table: "AspNetRoles",
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
-                values: new object[] { "47cc8f1d-4adc-41dd-9436-6d9f3ad45e5a", "a1f908a4-728d-4b31-befd-f332924b1e0b", "Admin", "ADMIN" });
+                values: new object[] { "2f8d148e-6add-4093-a0ee-919477d99def", "ce9ba667-54a9-4a88-8467-57fb64547819", "Admin", "ADMIN" });
 
             migrationBuilder.InsertData(
-                table: "Products",
-                columns: new[] { "ProductId", "Description", "Genre", "Price", "ProductName", "Rating", "Reviews" },
-                values: new object[] { 1, "Cool Album", "Rock", 20f, "Abbey Road", 5, "Good" });
+                table: "ShoppingCarts",
+                columns: new[] { "ShoppingCartId", "ProductId", "Quantity", "UserId" },
+                values: new object[] { 1, 2, 2, "a123" });
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -37,27 +37,27 @@ namespace eCommerceStarterCode.Migrations
             migrationBuilder.DeleteData(
                 table: "AspNetRoles",
                 keyColumn: "Id",
-                keyValue: "47cc8f1d-4adc-41dd-9436-6d9f3ad45e5a");
+                keyValue: "2f8d148e-6add-4093-a0ee-919477d99def");
 
             migrationBuilder.DeleteData(
                 table: "AspNetRoles",
                 keyColumn: "Id",
-                keyValue: "c49e787c-fb83-4a9b-acea-a83e3d2ff4a2");
+                keyValue: "4cccfbb5-980a-477b-a852-2d2b8533f079");
 
             migrationBuilder.DeleteData(
-                table: "Products",
-                keyColumn: "ProductId",
+                table: "ShoppingCarts",
+                keyColumn: "ShoppingCartId",
                 keyValue: 1);
 
             migrationBuilder.InsertData(
                 table: "AspNetRoles",
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
-                values: new object[] { "2d2bba51-0def-4019-977e-609b822a7261", "23c27555-f0c4-4334-be71-c5c1c5a0a09c", "User", "USER" });
+                values: new object[] { "daf1cf7b-d356-4443-b24a-9e548e092171", "02f04608-d7ab-484d-a4f0-0e4803bd934a", "User", "USER" });
 
             migrationBuilder.InsertData(
                 table: "AspNetRoles",
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
-                values: new object[] { "293a7aa3-f316-47e8-9c33-b875854d8c70", "c4c3819d-96e2-4d62-bbf7-5e70ec672e5b", "Admin", "ADMIN" });
+                values: new object[] { "ec78faaa-53e2-4d54-aeaf-f228cbc86b9d", "8e97524f-99b8-4382-bb85-3c749f326ab8", "Admin", "ADMIN" });
         }
     }
 }
